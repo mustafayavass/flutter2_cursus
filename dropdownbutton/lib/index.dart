@@ -25,20 +25,12 @@ class _IndexState extends State<Index> {
           child: DropdownButton(
               value: _changedCity,
               onChanged: _changeCity,
-              items: [
-                DropdownMenuItem<String>(
-                  value: _sehirler[0],
-                  child: Text(_sehirler[0]),
-                ),
-                DropdownMenuItem<String>(
-                  value: _sehirler[1],
-                  child: Text(_sehirler[1]),
-                ),
-                DropdownMenuItem<String>(
-                  value: _sehirler[2],
-                  child: Text(_sehirler[2]),
-                ),
-              ]),
+              items: _sehirler.map<DropdownMenuItem<String>>((String city) {
+                return DropdownMenuItem<String>(
+                  value: city,
+                  child: Text(city),
+                );
+              }).toList()),
         ));
   }
 
